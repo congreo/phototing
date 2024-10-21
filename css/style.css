@@ -1,0 +1,711 @@
+@font-face {
+    font-family: 'HancomUljuBangudae';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205-2@1.0/HancomUljuBangudae.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:'DNFBitBitv2';
+    font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
+
+
+
+/* 마우스 따라다니는 커서 동그라미 */
+.cursor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #FF6000; /* 핑크 색상 */
+    border-radius: 50%;
+    pointer-events: none; /* 커서 클릭 방지 */
+    z-index: 10000;
+    transition: transform 0.1s ease-out;
+}
+
+.cursor.clicked {
+    transform: scale(0.5); /* 클릭 시 크기 변화 */
+}
+
+/* 기본 Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'HancomUljuBangudae', sans-serif;
+    background-color: #000; /* 블랙 배경 */
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+
+/* Header 스타일 */
+.main-header {
+    background-color: #000; /* 블랙 */
+    padding: 10px 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-light .navbar-nav .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background-color: #FF6000; /* 핑크 */
+    transition: left 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover:after {
+    left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #C400C6; /* 네온 블루 */
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6); /* 흰색 테두리 */
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* 모바일에서 네비게이션 바 목록을 오른쪽으로 정렬 */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        text-align: right; /* 오른쪽 정렬 */
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #FF6000, #C400C6); /* 핑크와 네온 블루 그라데이션 */
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite, neon-glow 1.5s ease-in-out infinite alternate;
+    font-family:'DNFBitBitv2';
+    line-height: 1.5;
+}
+
+.hero-subtitle {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    color: #f9f9f9;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 2.5;
+}
+
+.hero-btn {
+    background-color: #000;
+    color: #FF6000; /* 핑크 */
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    animation: button-pulse 1.5s infinite ease-in-out;
+}
+
+.hero-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 20px rgba(255, 105, 180, 0.7);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes neon-glow {
+    0% { text-shadow: 0 0 10px #FF6000, 0 0 20px #FF6000, 0 0 30px #FF6000; }
+    100% { text-shadow: 0 0 20px #C400C6, 0 0 30px #C400C6, 0 0 40px #C400C6; }
+}
+
+@keyframes button-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 105, 180, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(255, 105, 180, 1); }
+}
+
+/* Main2 (우리는 누구인가) 스타일 */
+.main2 {
+    background-color: #000;
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* 첫 번째 동그라미 */
+.main2:before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -200px;
+    width: 300px;
+    height: 300px;
+    background-color: #FF6000;
+    border-radius: 50%;
+    z-index: -1;
+    animation: bounce 6s linear infinite;
+}
+
+/* 두 번째 동그라미 */
+.main2:after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background-color: #FF6000;
+    border-radius: 50%;
+    z-index: -1;
+    animation: bounce 4s linear infinite;
+}
+
+/* 세 번째 동그라미 추가 */
+.main2 .circle-3 {
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: #C400C6;
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotate 10s linear infinite;
+}
+
+/* 네 번째 동그라미 추가 */
+.main2 .circle-4 {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    width: 150px;
+    height: 150px;
+    background-color: #C400C6;
+    border-radius: 50%;
+    z-index: -1;
+    animation: bounce 8s linear infinite;
+}
+
+/* 회전 애니메이션 */
+@keyframes rotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+/* 튕기는 애니메이션 */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.m2-ment {
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.m2-ment span {
+    display: inline-block;
+    opacity: 0; /* 처음에는 보이지 않음 */
+    transform: translateY(20px); /* 아래에서 위로 등장 */
+    animation: text-fade-in 1s ease-in-out forwards;
+}
+
+.m2-ment span:nth-of-type(1) {
+    animation-delay: 0.5s;
+}
+
+.m2-ment span:nth-of-type(2) {
+    animation-delay: 1.5s;
+}
+
+.m2-ment span:nth-of-type(3) {
+    animation-delay: 3s;
+}
+
+.m2-ment span:nth-of-type(4) {
+    animation-delay: 4.5s;
+}
+.m2-ment span:nth-of-type(5) {
+    animation-delay: 4.5s;
+}
+
+
+@keyframes text-fade-in {
+    0% { 
+        opacity: 0; /* 시작할 때는 투명 */
+        transform: translateY(20px); /* 아래에서 시작 */
+    }
+    100% { 
+        opacity: 1; /* 완전히 보이도록 */
+        transform: translateY(0); /* 제자리로 올라옴 */
+    }
+}
+
+
+/* Main Service Section */
+.service-section {
+    padding: 100px 0;
+    background-color: #1F1F1F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 3rem; 
+    margin-bottom: 40px;
+    color: #FF6000;
+    font-family: 'DNFBitBitv2';
+    transform: rotate(-4deg);
+    animation: title-twist 1.5s ease-in-out infinite; /* 까딱하는 애니메이션 */
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.8), 
+                 0 0 10px rgba(255, 105, 180, 0.6), 
+                 0 0 15px rgba(255, 105, 180, 0.4); /* 네온 효과 */
+    letter-spacing: 3px; /* 글자 사이 간격 */
+    transition: transform 0.3s ease; /* 마우스 호버시 효과 */
+}
+
+.section-title:hover {
+    transform: scale(1.1) rotate(-4deg); /* 마우스 올리면 확대 */
+}
+
+.section-description {
+    font-size: 1.4rem;
+    color: #C400C6;
+    margin-bottom: 50px;
+    text-align: center;
+    transform: rotate(3deg);
+    animation: description-shake 2s ease-in-out infinite; /* 설명부분 까딱 */
+    letter-spacing: 2px;
+}
+
+@keyframes title-twist {
+    0% { transform: rotate(-4deg) scale(1); }
+    50% { transform: rotate(-2deg) scale(1.05); }
+    100% { transform: rotate(-4deg) scale(1); }
+}
+
+@keyframes description-shake {
+    0% { transform: rotate(3deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(3deg); }
+}
+
+.info-box {
+    background-color: #1F1F1F;
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: perspective(600px) rotateY(10deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #C400C6;
+}
+
+.info-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #FF6000;
+}
+
+.info-value {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* 클릭 애니메이션 */
+.info-box:active {
+    transform: scale(0.95) rotate(0);
+    transition: transform 0.2s;
+}
+
+
+/* QNA Section */
+.qna-section {
+    background-color: #1F1F1F;
+    padding: 100px 0;
+}
+
+.step-box {
+    background-color: #000;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transform: rotate(-3deg);
+    color: #fff;
+}
+
+.step-box:hover {
+    transform: rotate(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.step-video {
+    width: 100%;
+    height: auto;
+    max-height: 400px;  
+    /* max 값 넣으니까 작아짐. 이건 나중에 실제 비디오 넣고 해결해보자 */
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.step-box h4 {
+    font-size: 1.7rem;
+    color: #C400C6;
+}
+
+.step-box p {
+    font-size: 1.3rem;
+    color: #FF6000;
+}
+
+/* 포토팅 가이드라인 Section */
+.why-section {
+    padding: 100px 0;
+    
+}
+
+.why-section .section-title {
+    font-size: 3.5rem;
+    color: #FF6000; /* 주황색으로 할로윈 분위기 */
+}
+
+.why-text h4 {
+    font-size: 2rem;
+    color: #FF6000; /* 할로윈 느낌의 주황색 */
+    margin-bottom: 10px;
+}
+
+.why-text p {
+    font-size: 1.5rem;
+    color: black; /* 흰색 글자 */
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.why-text {
+    background-color: white; /* 텍스트 박스 배경색을 살짝 부여 */
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+
+
+/* JUST TRY IT Section */
+.just-try-it-section {
+    background-color: #1F1F1F;
+    padding: 100px 0;
+}
+
+.just-try-it-section .section-title {
+    font-size: 3.5rem;
+    color: #FF6000;
+}
+
+.just-try-it-section .section-description {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.try-step {
+    background-color: #000;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.try-step:hover {
+    transform: translateX(10px) translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.try-step h4 {
+    font-size: 1.7rem;
+    color: #C400C6;
+}
+
+.try-step p {
+    font-size: 1.3rem;
+    color: #FF6000;
+}
+
+
+/* 마지막 신청하기 버튼 */
+.main-btn {
+    background-color: #FF6000; /* 핑크 */
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 0px 20px rgba(255, 105, 180, 0.8), 0px 0px 30px rgba(0, 230, 255, 0.8);
+    animation: pulseEffect 2s infinite ease-in-out;
+}
+
+/* 버튼이 호버될 때 효과 */
+.main-btn:hover {
+    transform: scale(1.1) rotate(-3deg);
+    background-color: #C400C6; /* 네온 블루 */
+    color: #fff;
+    box-shadow: 0 0 30px rgba(0, 230, 255, 0.8), 0 0 50px rgba(255, 105, 180, 1);
+}
+
+/* 마우스 따라가는 배경 이펙트 */
+.main-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 105, 180, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.main-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 네온 글자 효과 */
+.main-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 105, 180, 0.8);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 30px rgba(0, 230, 255, 0.8);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.main-btn:hover::after {
+    opacity: 1;
+}
+
+/* 맥동 애니메이션 */
+@keyframes pulseEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 30px rgba(0, 230, 255, 0.8);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 1), 0 0 50px rgba(0, 230, 255, 1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 30px rgba(0, 230, 255, 0.8);
+    }
+}
+
+
+
+/* Footer 스타일 */
+.footer {
+    background-color: #000;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+
+/* 반응형 */
+/* 반응형 Hero Section */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .hero-btn {
+        font-size: 1.2rem;
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.1rem;
+    }
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    .hero-btn {
+        font-size: 1.2rem;
+        padding: 8px 20px;
+    }
+}
+
+/* 반응형 Main2 Section */
+@media (max-width: 768px) {
+    .m2-ment {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .m2-ment {
+        font-size: 1.2rem;
+    }
+}
+
+/* 반응형 Main Service Section */
+@media (max-width: 768px) {
+    .service-section {
+        flex-direction: column; /* 작은 화면에서 수직 정렬 */
+        text-align: center; /* 가운데 정렬 */
+    }
+    .info-box {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-box {
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+}
+
+/* 반응형 QNA Section */
+@media (max-width: 768px) {
+    .step-box {
+        font-size: 1.2rem;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .step-box {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+/* 반응형 WHY Section */
+@media (max-width: 768px) {
+    .why-section .row {
+        flex-direction: column; /* 작은 화면에서 수직 정렬 */
+        text-align: center;
+    }
+    .why-img {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .why-text h4 {
+        font-size: 1.5rem;
+    }
+    .why-text p {
+        font-size: 1.2rem;
+    }
+}
+
+/* 반응형 JUST TRY IT Section */
+@media (max-width: 768px) {
+    .try-step {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .try-step {
+        font-size: 1rem;
+        padding: 20px;
+    }
+}
+
+/* 반응형 마지막 신청하기 버튼 */
+@media (max-width: 768px) {
+    .main-btn {
+        font-size: 1.4rem;
+        padding: 12px 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-btn {
+        font-size: 1.2rem;
+        padding: 10px 30px;
+    }
+}
