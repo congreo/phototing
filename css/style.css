@@ -118,7 +118,7 @@ body {
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 4.3rem;
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
@@ -453,6 +453,10 @@ body {
 }
 
 
+.why-text:hover {
+    transform: scale(1.05); /* 살짝 확대 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+}
 
 /* JUST TRY IT Section */
 .just-try-it-section {
