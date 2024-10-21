@@ -1,10 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta http-equiv="refresh" content="0; url=/phototing/main.html">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포토팅</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" href="/jpg/var_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <p>If you are not redirected automatically, follow the <a href="/phototing/main.html">link to main.html</a>.</p>
+    <!-- 마우스 따라오는 커서 -->
+    <div class="cursor"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="#" style="color: white;">PHOTOTING</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#main2">우리는 누구</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#service">메인 서비스</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#guide">참여 가이드</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title"><span style="font-size: 0.9em;">10월 31일 ~ 11월 2일 단 3일간,</span> <br>일일 위치기반 포토팅의<br>베타테스터를 모집합니다.</h1>
+            <p class="hero-subtitle">할로윈데이,<br> 포토팅 해보실래요?<br />
+             우리 함께 즐거운 추억 만들어봐요!<br />
+            </p>
+            <button class="btn hero-btn" onclick="scrollToMain2()">2~30대 (솔로)남녀 선착순 모집중</button>
+        </div>
+    </section>
+
+    <script>
+        function scrollToMain2() {
+            document.querySelector('.main2').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Main2 Section -->
+    <section id= "main2"class="main2">
+        <div class="container text-center">
+            <h2 class="section-title">WE ARE...</h2>
+            <p class="m2-ment">
+                <span class="fade-in">안녕하세요, 기획자입니다. </span><br><br>   
+                <span class="fade-in">우리 모두 각자의 매력을 가지고 있습니다.<br> 그리고 새로운 만남 속에서 <br> 그 매력은 발산되고, 발견되기도 합니다.</span><br><br>   
+                <span class="fade-in">특히, 우리는 함께할 때<br> 더 많은 웃음과 <br> 풍부한 추억을 쌓을 수 있습니다.</span><br><br>               
+                <span class="fade-in">이러한 자연스럽고 편안한<br> 교류의 기회를 제공하고자, <br> 할로윈 이벤트를 기획해 보았습니다.</span><br><br>
+                <span class="fade-in">여러분의 청춘의 순간이<br> 사람으로, 추억으로 <br> 더 풍성해지길 바랍니다.</span>
+            </p>
+            
+            <div class="circle-3"></div> <!-- 세 번째 동그라미 -->
+            <div class="circle-4"></div> <!-- 네 번째 동그라미 -->
+        </div>
+    </section>
+
+    <!-- Main Service Section -->
+    <section id="service" class="service-section">
+        <div class="container text-center">
+            <h2 class="section-title">MAIN SERVICE</h2>
+            <p class="section-description">이용 당일, 실시간으로 서면/전포에 있는 <br>  2030 청춘들과 자연스럽게 연결될 수 있다.</p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <i class="fas fa-calendar-alt info-icon"></i>
+                        <p class="info-title">일일</p>
+                        <p class="info-value">10월 31일(목) <br>~ 11월 2일(토)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <p class="info-title">위치기반</p>
+                        <p class="info-value">서면,<br>전포</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <i class="fas fa-camera info-icon"></i>
+                        <p class="info-title">포토팅</p>
+                        <p class="info-value">사진을 매개로 <br>사람과 연결되다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 참여방법 Section -->
+    <!-- <section id="qna" class="qna-section">
+        <div class="container text-center">
+            <h2 class="section-title">HOW TO DO</h2>
+            <p class="section-description">우리 친구맺고 함께하자!</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <video class="step-video" autoplay muted loop>
+                            <source src="/videos/howtodo.mp4" type="video/mp4"> 동영상을 재생할 수 없습니다.
+                        </video>
+                        <h4>이용일, 프로필을 등록한다</h4>
+                        <p>사진, 인원수, 나이대를 체크하고 프로필 카드를 등록한다. 해당 정보는 상대에게 보여지며,<br> 사진은 흐릿하게 제공된다</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <video class="step-video" autoplay muted loop>
+                            <source src="/videos/howtodo.mp4" type="video/mp4"> 동영상을 재생할 수 없습니다.
+                        </video>
+                        <h4>친구를 맺는다</h4>
+                        <p>우리와 잘 맞을 것 같은 팀에게 친구를 건다. <br>서로 친구가 되면, 선명한 프로필을 확인할 수 있다.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <video class="step-video" autoplay muted loop>
+                            <source src="/videos/howtodo.mp4" type="video/mp4"> 동영상을 재생할 수 없습니다.
+                        </video>
+                        <h4>편안하게 대화한다</h4>
+                        <p>내 친구들에게 채팅을 걸 수 있다.<br> 새로운 사람들과 즐거운 추억을 쌓아보자!</p>
+                    </div>
+                </div>
+            </div>
+            <p>이용을 원치 않을경우, 프로필 삭제가 가능합니다</p>
+        </div>
+    </section> -->
+
+        <!-- 포토팅 가이드라인 Section -->
+<section class="why-section" id="guide">
+    <div class="container">
+        <h2 class="section-title text-center">HOW TO DO</h2>
+        <p class="section-description">포토팅, 이렇게 이용해주세요</p>
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>1. 사진 준비</h4>
+                    <p>이용 당일, <span style="background-color: yellow; padding: 0 5px;">친구와 함께 찍은 사진</span>을 준비한다.<br><span style="font-size: 1.1rem; color: #C400C6;">※셀카 또는 거울샷 등 우리의 모습이 담겨야한다</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>2. 핸드폰 번호 인증</h4>
+                    <p>어플 설치 후, 신청 대상 확인을 위해 핸드폰 번호 인증을 진행한다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>3. 프로필 작성 및 가입</h4>
+                    <p>프로필 카드 작성 후, 개인 코드를 발급받아 가입을 완료한다. (사진, 인원수, 나이대 체크)</p>
+                    <p style="font-size: 1.1rem; color: #C400C6;">※사전 신청 되지 않은 사용자는 회원 가입이 불가합니다</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>4. 코드로 로그인</h4>
+                    <p>발급받은 코드로 로그인한다. <br><span style="font-size: 1.1rem; color: #C400C6;">※코드 번호로 로그인이 이루어지므로, <u>코드를 잊지 않도록 주의하세요.</u></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>5. 그룹 리스트 확인</h4>
+                    <p>실시간으로 내 주변에 있는 그룹 리스트를 확인한다. 
+                        <br><span style="font-size: 1.1rem; color: #C400C6;">※리스트에서는 나와 상대방의 얼굴이 <u>블러 처리된 상태</u>로 보여집니다.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>6. 친구 요청</h4>
+                    <p>함께 놀고 싶은 사람에게 친구 요청을 보낸다. <br><span style="font-size: 1.1rem; color: #C400C6;">※<u>친구 요청 시, 상대방에게 내 프로필 사진이 공개</u>됩니다.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>7. 친구 수락 및 채팅</h4>
+                    <p><u>친구 요청이 수락</u>되면, 사진을 포함한 <span style="background-color: yellow; padding: 0 5px;">공개된 프로필이 제공</span>되며, 채팅이 가능합니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>8. 위치 및 메뉴 공유</h4>
+                    <p>현재 위치나 먹고 싶은 메뉴 등을 공유하여 함께할 그룹을 찾아본다.<br><span style="font-size: 1.1rem; color: #C400C6;">※매너없는 행동은 이용에 제한이 될 수 있습니다</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="why-text">
+                    <h4>9. 매력적인 사람들과 자연스러운 만남</h4>
+                    <p>할로윈 데이에 잊지 못할 추억과 인연을 만드세요!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+        <!-- JUST TRY IT Section -->
+        <section class="just-try-it-section">
+            <div class="container text-center">
+                <h2 class="section-title">JUST TRY IT</h2>
+                <p class="section-description">각자의 매력을 지닌 여러분 모두 환영합니다.<br>친구와 함께 우리의 시너지를 보여주세요!</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="try-step">
+                            <h4>1. 친구들과 약속을 잡는다</h4>
+                            <p>친구야 할로윈에 서면에서 놀자!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="try-step">
+                            <h4>2. 신청 폼 작성</h4>
+                            <p>서비스 신청 폼을 작성하고, 개별 연락을 기다린다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="try-step">
+                            <h4>3. 준비한다</h4>
+                            <p>매너있고 즐겁게 놀 마음가짐을 준비한다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="try-step">
+                            <h4>4. 함께 추억을 쌓는다</h4>
+                            <p>실시간 주변에 있는 그룹과 친구가 되어 함께한다.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://forms.gle/fUrY4j6K1N9LYthm7" target="_blank" class="btn main-btn mt-4">바로 신청하기</a>
+            </div>
+        </section>
+    
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>PHOTOTING IN BUSAN</p>
+        </div>
+    </footer>
+
+    <script>
+        // 마우스 따라오는 커서 동그라미
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = e.pageY + 'px';
+            cursor.style.left = e.pageX + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('clicked');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('clicked');
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
